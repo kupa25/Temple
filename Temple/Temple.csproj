@@ -278,6 +278,7 @@
     <Content Include="Images\pic06.jpg" />
     <Content Include="Images\pic07.jpg" />
     <Content Include="Images\pic08.jpg" />
+    <Content Include="Images\splash.png" />
     <Content Include="js\html5shiv.js" />
     <Content Include="js\init.js" />
     <Content Include="js\jquery.min.js" />
