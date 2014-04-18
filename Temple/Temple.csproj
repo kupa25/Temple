@@ -271,6 +271,7 @@
     <None Include="Properties\PublishProfiles\HSNEF.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\avatar.jpg" />
+    <Content Include="Images\ganesh.png" />
     <Content Include="Images\pic01.jpg" />
     <Content Include="Images\pic02.jpg" />
     <Content Include="Images\pic03.jpg" />
