@@ -280,6 +280,10 @@ var skel = function () {
             var d, c, e, f, g, h, k;
             a.vars.lastStateId = a.stateId;
             a.stateId = b;
+            a.urlprefix = "";
+            if (window.location.hostname == "localhost") {
+                a.urlprefix = window.location.protocol + "//" + window.location.hostname + "/Temple/";
+            }
             if (a.cache.states[a.stateId]) c = a.cache.states[a.stateId];
             else {
                 a.cache.states[a.stateId] = {
@@ -297,7 +301,7 @@ var skel = function () {
                 a.config.resetCSS ? (g = "iR", (f = a.getCachedElement(g)) ||
                     (f = a.cacheElement(g, a.newInline(a.css.r), "head", 2)), c.elements.push(f)) : a.config.normalizeCSS && (g = "iN", (f = a.getCachedElement(g)) || (f = a.cacheElement(g, a.newInline(a.css.n), "head", 2)), c.elements.push(f));
 
-                a.config.prefix && (g = "ssB", (f = a.getCachedElement(g)) || (f = a.cacheElement(g, a.newStyleSheet(a.config.prefix + ".css"), "head", 4)), c.elements.push(f));
+                a.config.prefix && (g = "ssB", (f = a.getCachedElement(g)) || (f = a.cacheElement(g, a.newStyleSheet(a.urlprefix + a.config.prefix + ".css"), "head", 4)), c.elements.push(f));
 
                 c.config.lockViewport ? (g = "mVL" + a.stateId, (f = a.getCachedElement(g)) || (f = a.cacheElement(g, a.newMeta("viewport", "width=" + (c.config.viewportWidth ? c.config.viewportWidth :
                     "device-width") + ",initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"), "head", 1)), c.elements.push(f)) : c.config.viewportWidth && (g = "mV" + a.stateId, (f = a.getCachedElement(g)) || (f = a.cacheElement(g, a.newMeta("viewport", "width=" + c.config.viewportWidth), "head", 1)), c.elements.push(f));
@@ -366,7 +370,7 @@ var skel = function () {
                         b) : k.push(".only-" + b)
                 }), b = (0 < h.length ? h.join(",") + "{display:none!important}" : "") + (0 < k.length ? k.join(",") + "{display:none!important}" : ""), f = a.cacheElement(g, a.newInline(b.replace(/\.([0-9])/, ".\\3$1 ")), "head", 3), c.elements.push(f));
                 a.iterate(d, function (b) {
-                    a.breakpoints[d[b]].config.hasStyleSheet && a.config.prefix && (g = "ss" + d[b], (f = a.getCachedElement(g)) || (f = a.cacheElement(g, a.newStyleSheet(a.config.prefix + "-" + d[b] + ".css"), "head", 5)), c.elements.push(f));
+                    a.breakpoints[d[b]].config.hasStyleSheet && a.config.prefix && (g = "ss" + d[b], (f = a.getCachedElement(g)) || (f = a.cacheElement(g, a.newStyleSheet(a.urlprefix + a.config.prefix + "-" + d[b] + ".css"), "head", 5)), c.elements.push(f));
                     0 < a.breakpoints[d[b]].elements.length && a.iterate(a.breakpoints[d[b]].elements,
                         function (e) {
                             c.elements.push(a.breakpoints[d[b]].elements[e])
@@ -465,7 +469,7 @@ var skel = function () {
                 c.test = b(e, c.config.range);
                 c.elements = [];
                 a.breakpoints[e] = c;
-                a.config.preloadStyleSheets && c.config.hasStyleSheet && g.push(a.config.prefix + "-" + e + ".css");
+                a.config.preloadStyleSheets && c.config.hasStyleSheet && g.push(a.urlprefix + a.config.prefix + "-" + e + ".css");
                 a.breakpointList.push(e)
             });
             a.iterate(a.config.events, function (b) {
