@@ -67,14 +67,14 @@
                         <li><a href="#contact" id="contact-link" class="skel-panels-ignoreHref"><span class="fa fa-envelope">Contact</span></a></li>
                     </ul>*@
                     <ul>
-                        <li>@Html.ActionLink("About", "Index", "About")</li>
+                        <li>@Html.ActionLink("About", "Index", "About", null, new Dictionary<string, object>{{"data-name","About"}})</li>
                         <li><a href="#">Location / Timing</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">Education</a></li>
                         <li><a href="#">Events</a></li>
                         <li><a href="#">Other Servies</a></li>
                         <li><a href="#">Gallery</a></li>
-                        <li>@Html.ActionLink("Contact Us", "Index", "Contact")</li>
+                        <li>@Html.ActionLink("Contact Us", "Index", "Contact", null, new Dictionary<string, object> { { "data-name", "Contact" } })</li>
                     </ul>
                 </nav>
 
@@ -107,5 +107,15 @@
             </div>
 
         </div>
+
+        <script>
+            jQuery(window).load(function () {
+                var pagename = $("#main").attr("data-pagename");
+
+                $("li [data-name='" + pagename + "']").addClass("scrollzer-locked active");
+
+
+            });
+        </script>
     </body>
 </html>
