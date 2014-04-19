@@ -67,14 +67,14 @@
                         <li><a href="#contact" id="contact-link" class="skel-panels-ignoreHref"><span class="fa fa-envelope">Contact</span></a></li>
                     </ul>*@
                     <ul>
-                        <li>@Html.ActionLink("About", "Index", "About", null, new Dictionary<string, object>{{"data-name","About"}})</li>
+                        <li><a href="@Url.Action("Index","About")" data-name="About"><span class="fa fa-th">About</span></a></li>
                         <li><a href="#">Location / Timing</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">Education</a></li>
                         <li><a href="#">Events</a></li>
                         <li><a href="#">Other Servies</a></li>
-                        <li><a href="#"><span class="fa fa-envelope">Gallery</span></a></li>
-                        <li>@Html.ActionLink("Contact Us", "Index", "Contact", null, new Dictionary<string, object> { { "data-name", "Contact" } })</li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="@Url.Action("Index", "Contact")" data-name="Contact"><span class="fa fa-envelope">Contact</span></a></li>
                     </ul>
                 </nav>
 
